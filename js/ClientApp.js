@@ -1,17 +1,21 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { HashRouter, Match } from 'react-router'
+import { BrowserRouter, Match } from 'react-router'
+import Landing from './Landing'
+import Search from './Search'
 import '../public/normalize.css'
 import '../public/style.css'
-import Landing from './Landing'
+
 const App = React.createClass({
   render () {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div className='app'>
+          { /* you could put a <nav/> here if you wanted the nav bar to render on each page */ }
           <Match exactly pattern='/' component={Landing} />
+          <Match pattern='/search' component={Search} />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 })

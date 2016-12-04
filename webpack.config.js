@@ -9,7 +9,8 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    publicPath: '/public/'
+    publicPath: '/public/',
+    historyApiFallback: true // re-route 404 to home
   },
   resolve: {
     extensions: ['.js', '.json']
@@ -26,6 +27,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'eslint-loader',
         exclude: /node-modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
         include: path.resolve(__dirname, 'js'),
