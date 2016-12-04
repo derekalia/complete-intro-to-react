@@ -1,27 +1,19 @@
-/* global React ReactDOM */
-
-var myTitle = React.createClass({
-  render: function () {
+import React from 'react'
+import { render } from 'react-dom'
+import { HashRouter, Match } from 'react-router'
+import '../public/normalize.css'
+import '../public/style.css'
+import Landing from './Landing'
+const App = React.createClass({
+  render () {
     return (
-      React.DOM.div(null,
-        React.DOM.h1({style: {color: this.props.color, fontWeight: 'bold'}}, this.props.title)
-      )
+      <HashRouter>
+        <div className='app'>
+          <Match exactly pattern='/' component={Landing} />
+        </div>
+      </HashRouter>
     )
   }
 })
 
-var myTitleFactory = React.createFactory(myTitle)
-
-var myFirstComponent = React.createClass({
-  render: function () {
-    return (
-        React.DOM.div(null,
-          myTitleFactory({ title: 'props are the best', color: 'peru'}),
-          myTitleFactory({ title: 'semicolons are the worst', color: 'mediumaquamarine'}),
-          myTitleFactory({ title: 'jk lol sike', color: 'papayawhip'}),
-          myTitleFactory({ title: 'i have so many', color: 'rebeccapurple'})
-        )
-    )
-  }
-})
-ReactDOM.render(React.createElement(myFirstComponent), document.getElementById('app'))
+render(<App />, document.getElementById('app'))

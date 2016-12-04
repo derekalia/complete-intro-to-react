@@ -6,11 +6,15 @@
   "author": "Brian Holt <btholt@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "standard"
+    "lint": "eslint js/**/*.js webpack.config.js",
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "watch": "npm run build -- --watch"
   },
   "dependencies": {
     "axios": "0.15.2",
     "express": "4.14.0",
+    "global": "^4.3.1",
     "history": "^4.4.0",
     "lodash": "4.16.2",
     "react": "15.3.2",
@@ -47,7 +51,7 @@
     "react-addons-test-utils": "15.3.2",
     "react-test-renderer": "15.3.2",
     "style-loader": "0.13.1",
-    "webpack": "2.1.0-beta.25",
+    "webpack": "v2.1.0-beta.25",
     "webpack-dev-server": "1.16.2"
   },
   "directories": {
