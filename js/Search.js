@@ -17,7 +17,6 @@ const Search = React.createClass({
     return (
       <div className='search'>
         <header>
-          <h1>SmartHi</h1>
           <input value={this.state.searchTerm} placeholder='search' onChange={this.handleSearchTermChange} type='text' />
         </header>
         <div>
